@@ -1,0 +1,13 @@
+@mixin buttonSize($width, $height, $fontSize) {
+  width: $width;
+  height: $height;
+  font-size: $fontSize;
+  display: inline-block;
+  text-align: center;
+  line-height: $height;
+}
+
+@mixin buttonColor($bgColor, $textColor) {
+  background-color: $bgColor;
+  color: $textColor;
+}
