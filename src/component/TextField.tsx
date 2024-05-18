@@ -1,4 +1,7 @@
 import "./TextField.scss";
+import React from "react";
+import {useId} from "react";
+
 
 interface Props {
     placeHolder: String
@@ -6,30 +9,26 @@ interface Props {
 }
 
 const TextField = ({placeHolder, type}: Props)  => {
-    if(type == "text"){
-        return (
-            <div className="input-container">
-                <input type="text" className="input-line" placeholder={`${placeHolder}`}/>
-            </div>
-        );
-    }
-    else {
-        return (
-            <div className="input-container">
+    const id = useId();
+
+    return (
+        <div className="input-container">
+            {type === "text" ? (
+                <input id={`${id}-text`} type="text" className="input-line" placeholder={`${placeHolder}`}/>
+            ) : (
                 <div className="input-email-container">
-                    <input type="email" className="input-email" placeholder="Enter email"/>
-                    <div className="at-symbol">@</div>
-                    <select className="email-domain">
+                    <input id={`${id}-email`} type="email" className="input-email" placeholder="Enter email"/>
+                    <span id={`${id}-at-symbol`} className="at-symbol">@</span>
+                    <select id={`${id}-email-domain`} className="email-domain">
                         <option value="@gmail.com">gmail.com</option>
                         <option value="@naver.com">naver.com</option>
                         <option value="@daum.net">daum.net</option>
                     </select>
                 </div>
-            </div>
-        );
-    }
+            )}
 
+        </div>
+    );
 };
-
 
 export default TextField;
