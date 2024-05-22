@@ -1,5 +1,7 @@
 import Button from "../component/Btn.tsx";
 import TextField from "../component/TextField.tsx";
+import IssueType from "../component/IssueType";
+import Priority from "../component/Priority";
 
 const TestPage = () => {
     return (
@@ -55,9 +57,26 @@ const TestPage = () => {
                 buttonSize="invitationCodeButton"
                 buttonColor="grey">입력</Button>
 
-            <TextField placeHolder="Enter text here" type="text"/>
-            <TextField placeHolder="Enter your email" type="email"/>
+            {/*<TextField placeHolder="Enter text here" type="text"/>*/}
+            {/*<TextField placeHolder="Enter your email" type="email"/>*/}
 
+            {/*<Input mode={"email"} />*/}
+            {/*<Input mode={"text"} />*/}
+            {/*<Input mode={"password"} />*/}
+
+            {/*<SelectBox mode={'email'} data={['gmail.com','naver.com','daum.com']} />*/}
+            <TextField type={"text"} />
+            <TextField type={"password"} />
+            <TextField type={"email"} />
+
+            <IssueType type={"bug"} />
+            <IssueType type={"improvement"} />
+            <IssueType type={"new"} />
+            <IssueType type={"issue"} />
+                <p></p>
+            <Priority type={1} />
+            <Priority type={2} />
+            <Priority type={3} />
         </div>
     );
 }

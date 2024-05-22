@@ -1,34 +1,34 @@
 import "./TextField.scss";
 import React from "react";
 import {useId} from "react";
+import Input from "./Input";
+import SelectBox from "./SelectBox";
 
 
 interface Props {
-    placeHolder: String
-    type: String
+    type: keyof StyleObj
+}
+interface StyleObj {
+    text: string;
+    email: string;
+    password: string;
 }
 
-const TextField = ({placeHolder, type}: Props)  => {
+const TextField = ({type}: Props)  => {
     const id = useId();
 
-    return (
-        <div className="input-container">
-            {type === "text" ? (
-                <input id={`${id}-text`} type="text" className="input-line" placeholder={`${placeHolder}`}/>
-            ) : (
-                <div className="input-email-container">
-                    <input id={`${id}-email`} type="email" className="input-email" placeholder="Enter email"/>
-                    <span id={`${id}-at-symbol`} className="at-symbol">@</span>
-                    <select id={`${id}-email-domain`} className="email-domain">
-                        <option value="@gmail.com">gmail.com</option>
-                        <option value="@naver.com">naver.com</option>
-                        <option value="@daum.net">daum.net</option>
-                    </select>
-                </div>
-            )}
-
+    return(
+        <div className={`${type}Container`}>
+            <Input mode={`${type}`}/>
+            {type === "email"?(
+                <>
+                    <span id={`${id}AtSymbol`} className="at-symbol">@</span>
+                    <SelectBox mode={`${type}`} data={['gmail.com', 'naver.com', 'daum.com']}/>
+                </>
+            ): null}
         </div>
-    );
+    )
 };
 
 export default TextField;
+

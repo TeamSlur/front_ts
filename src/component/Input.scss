@@ -1,0 +1,28 @@
+#idtext, #idpassword {
+  width: 100%;              /* 입력 필드의 너비를 100%로 설정 */
+  padding: 10px;            /* 패딩 설정 */
+  font-size: 16px;          /* 텍스트 크기 설정 */
+  font-family: Arial, sans-serif; /* 폰트 설정 */
+  border: none;             /* 모든 테두리를 제거 */
+  border-bottom: 1px solid #000; /* 하단에만 테두리를 추가 */
+  outline: none;            /* 포커스 시 아웃라인 제거 */
+  color: #000;
+  &::placeholder {
+    color: #ccc;
+  }
+}
+
+#idemail{
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+  color: #000;
+
+  &::placeholder {
+    color: #ccc;
+  }
+}
