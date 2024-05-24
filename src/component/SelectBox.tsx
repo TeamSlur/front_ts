@@ -11,7 +11,7 @@ const SelectBox = ({mode, data}: Props) => {
     const optionId = useId();
 
     return (
-        <select id={selectId+mode} className={`select${mode}`}>
+        <select id={selectId+mode} className={`selectBox`}>
             {data.map((item, index) => (
                 <option key={optionId + index} value={item}>
                     {item}
@@ -20,5 +20,4 @@ const SelectBox = ({mode, data}: Props) => {
         </select>
     )
 }
-
 export default SelectBox
