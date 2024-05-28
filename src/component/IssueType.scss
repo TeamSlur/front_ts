@@ -1,0 +1,63 @@
+#issuebug {
+  background-color: #FF3A00;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 16px;
+  font-weight: bold;
+
+  &::before {
+    content: "!";
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+#issueimprovement {
+  background-color: #008325;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 16px;
+  font-weight: bold;
+
+  &::before {
+    content: "￪";
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+#issuenew {
+  background-color: #0FA958;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 16px;
+  font-weight: bold;
+
+  &::before {
+    content: "+";
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+#issueissue {
+  background-color: #6B6B6B;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 15px;
+  font-size: 16px;
+  font-weight: bold;
+
+  &::before {
+    content: "○";
+    font-size: 20px;
+    font-weight: bold;
+  }
+}

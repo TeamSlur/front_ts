@@ -1,0 +1,15 @@
+.planItems{
+  width: 100%;
+  height: 30px;
+  border: none;
+  font-size: 20px;
+  background-color: white;
+  display: flex; /* Flexbox 사용 */
+  align-items: center; /* 수직 중앙 정렬 */
+}
+
+.planIcons {
+  width: 30px;
+  height: 30px;
+  padding-right: 5px;
+}

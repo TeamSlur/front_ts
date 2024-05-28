@@ -1,0 +1,23 @@
+.at-symbol {
+  width: 5%;
+  font-size: 20px;
+  text-align: center;
+  color: #333;
+}
+
+
+.textContainer, .passwordContainer {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.emailContainer {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}

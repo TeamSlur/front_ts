@@ -1,0 +1,59 @@
+@import "./mixin.scss";
+@import "../index.scss";
+
+.commentButton {
+  @include buttonSize(3.47%, 200%, 16px);
+}
+
+.checkDuplicationButton {
+  @include buttonSize(6.9%, 200%, 20px);
+}
+
+.signUpLogInButton {
+  @include buttonSize(31.6%, 200%, 24px);
+}
+
+.searchButton {
+  @include buttonSize(9.3%, 200%, 20px);
+}
+
+.initialProjectButton {
+  @include buttonSize(18.5%, 200%, 24px);
+}
+
+.invitationCodeButton {
+  @include buttonSize(5.8%, 200%, 16px);
+}
+
+.dark {
+  @include buttonColor($main-white, $main-black);
+  opacity: 85%;
+
+  &:hover {
+    opacity: 100%;
+    @include buttonColor($main-black, $main-white);
+  }
+}
+
+.blue {
+  @include buttonColor($main-blue, $main-white);
+  border: 1px solid $main-blue;
+
+  &:hover {
+    @include buttonColor($main-blue-hover, $main-white);
+  }
+}
+
+.grey {
+  @include buttonColor($main-brightGrey, $main-black);
+  border: 1px solid $main-darkGrey;
+  border-radius: 15px;
+
+  &:hover {
+    @include buttonColor($main-grey, $main-darkGrey);
+  }
+}
+
+.button-margin {
+  margin-right: 10px;
+}
