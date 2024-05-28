@@ -7,17 +7,6 @@ import PlanItems from "../component/PlanItems";
 const TestPage = () => {
     return (
         <div className="App">
-                <p>
-                        Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                        Learn React
-                </a>
 
                 <p>댓글 저장 버튼</p>
                 <Button
@@ -58,14 +47,6 @@ const TestPage = () => {
                     buttonSize="invitationCodeButton"
                     buttonColor="grey">입력</Button>
 
-                {/*<TextField placeHolder="Enter text here" type="text"/>*/}
-                {/*<TextField placeHolder="Enter your email" type="email"/>*/}
-
-                {/*<Input mode={"email"} />*/}
-                {/*<Input mode={"text"} />*/}
-                {/*<Input mode={"password"} />*/}
-
-                {/*<SelectBox mode={'email'} data={['gmail.com','naver.com','daum.com']} />*/}
                 <TextField type={"text"}/>
                 <TextField type={"password"}/>
                 <TextField type={"email"}/>
