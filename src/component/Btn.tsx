@@ -9,9 +9,7 @@ interface Props {
 
 const Button = ({buttonSize, buttonColor, children }: Props)  => {
     return (
-        <button
-            className={`${buttonSize} ${buttonColor}`}
-        >
+        <button className={`${buttonSize} ${buttonColor}`}>
             {children}
         </button>
     );

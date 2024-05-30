@@ -9,6 +9,7 @@ interface Props {
     type: keyof StyleObj
 }
 interface StyleObj {
+    ID: string;
     text: string;
     email: string;
     password: string;

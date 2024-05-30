@@ -5,6 +5,7 @@ interface Props {
 }
 
 interface StyleObj {
+    ID: string;
     text: string;
     email: string;
     password: string;
@@ -12,12 +13,13 @@ interface StyleObj {
 
 const Input = ({ mode }: Props) => {
     const styleObj: StyleObj = {
+        'ID' : 'ID',
         'text' : 'text',
         'email' : 'email',
         'password' : 'password'
     }
     return(
-        <input id={`id${mode}`} type={styleObj[mode]} placeholder={`Enter ${mode}`}/>
+        <input id={`id${mode}`} type={styleObj[mode]} placeholder={`${mode}`}/>
     )
 }
 export default Input;
