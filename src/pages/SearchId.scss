@@ -1,0 +1,56 @@
+@import '../index.scss';
+.searchCotainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin-left: 35%;
+  margin-right: 35%;
+}
+#Logo {
+  margin-bottom: 10%; /* 로고 아래에 여백 추가 */
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* 버튼 컨테이너의 가로 길이 설정 */
+  max-width: 770px; /* 버튼 컨테이너의 최대 가로 길이 설정 */
+  margin-bottom: 20px; /* 버튼 컨테이너 아래 여백 */
+  height: 4em;
+}
+#backToLogIn{
+  font-size: 20px;
+  color: $main-darkGrey;
+  margin-bottom: 10%;
+  cursor: default;
+  text-decoration: underline;
+  &:hover{
+    font-weight: bold;
+  }
+}
+.checkDuplicationButton{
+  height: 2.5em;
+  width: 20%;
+  margin-bottom: 3%;
+  margin-top: 5%;
+}
+.emailContainer {
+  width: 100%;
+}
+
+.searchButton {
+  padding: 0;
+}
+#emailsearch{
+  align-self: flex-start; /* 요소를 왼쪽에 정렬 */
+  color: #F24E1E;
+  font-size: 1.2em;
+  margin-top: 0.5em;
+}
+
+#title_account {
+  align-self: flex-start; /* 요소를 왼쪽에 정렬 */
+  font-size: 30px; /* 제목 폰트 크기 설정 */
+  margin-bottom: 3%;
+}
