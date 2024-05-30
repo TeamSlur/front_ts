@@ -6,8 +6,7 @@
 }
 
 
-.textContainer, .passwordContainer {
-  width: 30%;
+.textContainer, .passwordContainer, .IDContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +16,6 @@
 .emailContainer {
   display: flex;
   align-items: center;
-  width: 30%;
   margin-left: auto;
   margin-right: auto;
 }

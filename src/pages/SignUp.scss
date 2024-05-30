@@ -1,0 +1,35 @@
+.signupContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* 부모 컨테이너의 높이를 화면 높이로 설정 */
+  margin-left: 35%;
+  margin-right: 35%;
+
+}
+
+#Logo_signup {
+  margin-bottom: 5%;
+  width: 12%;
+  height: 12%;
+}
+#title_signup {
+  font-size: 40px; /* 제목 폰트 크기 설정 */
+  margin-bottom: 5%;
+}
+
+#passwordcompare, #passwordsearch, #IDcompare, #textsearch {
+    align-self: flex-start; /* 요소를 왼쪽에 정렬 */
+    color: #F24E1E;
+    font-size: 1.2em;
+    margin-top: 0.5em;
+}
+
+.passwordContainer{
+  margin: 0;
+  width: 100%;
+}
+.textContainer{
+  width: 100%;
+}

@@ -1,0 +1,41 @@
+@import '../index.scss';
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* 부모 컨테이너의 높이를 화면 높이로 설정 */
+  margin-left: 35%;
+  margin-right: 35%;
+  .passwordContainer{
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 7%;
+  }
+}
+
+#Logo_login {
+  margin-bottom: 10%;
+}
+.IDContainer {
+  width: 100%;
+}
+
+
+.signUpLogInButton {
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+#id, #pw, #signup{
+  &:hover{
+    font-weight: bold;
+  }
+}
+
+.accountAction {
+  font-size: 20px;
+  color: $main-darkGrey;
+  margin-bottom: 10%;
+  cursor: default;
+}
