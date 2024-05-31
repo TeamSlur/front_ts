@@ -69,8 +69,7 @@ const TestPage = () => {
             <PlanItems type={"issue"}/>
             <PlanItems type={"code"}/>
             <img src={`${process.env.PUBLIC_URL}/assets/imgs/logo.png`} alt="Logo"/>
-            {/*<ErrorMessage mode={'ID'} />*/}
-            {/*<ErrorMessage mode={'password'} />*/}
+            
         </div>
     );
 }

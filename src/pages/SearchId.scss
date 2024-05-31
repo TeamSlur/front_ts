@@ -7,6 +7,7 @@
   height: 100vh;
   margin-left: 35%;
   margin-right: 35%;
+  min-width: 400px;
 }
 #Logo {
   margin-bottom: 10%; /* 로고 아래에 여백 추가 */
@@ -41,6 +42,7 @@
 
 .searchButton {
   padding: 0;
+  min-height: 62px;
 }
 #emailsearch{
   align-self: flex-start; /* 요소를 왼쪽에 정렬 */

@@ -1,8 +1,8 @@
-import React, {useEffect} from "react";
 import TextField from "../component/TextField";
 import Button from "../component/Btn";
 import './LogIn.scss'
 import { useNavigate } from 'react-router-dom';
+import React from "react";
 
 
 const LogIn = () => {
@@ -16,6 +16,9 @@ const LogIn = () => {
     const handleSignUpClick = () => {
         navigate('/signup');
     };
+    const handleLogInClick = () => {
+        navigate('/main');
+    };
     const separator = " | ";
 
     return (
@@ -25,7 +28,8 @@ const LogIn = () => {
             <TextField type={'password'}/>
             <Button
                 buttonSize="signUpLogInButton"
-                buttonColor="blue">로그인
+                buttonColor="blue"
+                onClick={handleLogInClick}>로그인
             </Button>
             <div className={'accountAction'}>
                 <span id={'id'} onClick={handleIdClick}>아이디찾기</span>

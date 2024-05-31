@@ -5,11 +5,12 @@ interface Props {
     buttonSize: String
     buttonColor: String
     children: String
+    onClick?: () => void
 }
 
-const Button = ({buttonSize, buttonColor, children }: Props)  => {
+const Button = ({buttonSize, buttonColor, children, onClick }: Props)  => {
     return (
-        <button className={`${buttonSize} ${buttonColor}`}>
+        <button className={`${buttonSize} ${buttonColor}`} onClick={onClick}>
             {children}
         </button>
     );
