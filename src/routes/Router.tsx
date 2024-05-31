@@ -5,6 +5,7 @@ import TestPage from '../pages/TestPage';
 import SearchId from "../pages/SearchId";
 import SearchPw from "../pages/SearchPw";
 import SignUp from "../pages/SignUp";
+import Main from "../pages/Main";
 
 const AppRouter = () => {
     return (
@@ -15,6 +16,7 @@ const AppRouter = () => {
                 <Route path="/searchid" element={<SearchId />} />
                 <Route path="/searchpw" element={<SearchPw />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/main" element={<Main />} />
             </Routes>
         </Router>
     );
