@@ -17,13 +17,13 @@ const LogIn = () => {
         navigate('/signup');
     };
     const handleLogInClick = () => {
-        navigate('/main');
+        navigate('/main/:pageContent');
     };
     const separator = " | ";
 
     return (
         <div className={'loginContainer'}>
-            <img id={`Logo_login`} src={`${process.env.PUBLIC_URL}/assets/imgs/logo.png`} alt="Logo"/>
+            <img src={`${process.env.PUBLIC_URL}/assets/imgs/logo.png`} alt="Logo" className={'LoginLogo'}/>
             <TextField type={'ID'}/>
             <TextField type={'password'}/>
             <Button

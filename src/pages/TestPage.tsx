@@ -4,9 +4,22 @@ import IssueType from "../component/IssueType";
 import Priority from "../component/Priority";
 import PlanItems from "../component/PlanItems";
 import React from 'react';
+import ProjectNav from "../component/ProjectNav";
 
 
 const TestPage = () => {
+    const projectList = [
+            {
+                    project_id: 1,
+                    project_name: 'test1',
+                    project_members: 5
+            },
+            {
+                    project_id: 2,
+                    project_name: 'test2',
+                    project_members: 3
+            }
+    ];
     return (
         <div className="App">
 
@@ -69,7 +82,7 @@ const TestPage = () => {
             <PlanItems type={"issue"}/>
             <PlanItems type={"code"}/>
             <img src={`${process.env.PUBLIC_URL}/assets/imgs/logo.png`} alt="Logo"/>
-            
+            <ProjectNav projectList={projectList} />
         </div>
     );
 }

@@ -7,6 +7,7 @@ import'./PlanItems.scss'
 
 interface Props {
     type: 'timeline' | 'issue' | 'code' | 'board';
+    onClick?: () => void;
 }
 
 const planItemsName = {
@@ -24,13 +25,13 @@ const planItems = {
     board: BoardIcon
 };
 
-const PlanItems = ({type}: Props) => {
+const PlanItems = ({type, onClick}: Props) => {
     const IconComponent = planItems[type];
-    return(
-        <button className={'planItems'}>
-            <IconComponent className={'planIcons'}/>
+    return (
+        <button className="planItems" onClick={onClick}>
+            <IconComponent className="planIcons" />
             {planItemsName[type]}
         </button>
-    )
+    );
 }
 export default PlanItems
