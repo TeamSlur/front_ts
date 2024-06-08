@@ -1,0 +1,77 @@
+.chatRoomContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #e6f0ff;
+}
+
+.chatTopBar {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.chatTopBar button {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  margin-right: 10px;
+}
+
+.chatTopBarIcons {
+  display: flex;
+  margin-left: auto;
+}
+
+.chatTopBarIcons button {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  align-items: center; /* 아이콘을 수직 중앙 정렬 */
+}
+
+.chatMessages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f0f8ff;
+}
+
+.searchIcon {
+  margin: 0;
+  padding: 0;
+}
+
+.chatMessage {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: white;
+  border-radius: 10px;
+  max-width: 70%;
+}
+
+.messageInput {
+  display: flex;
+  padding: 10px;
+  background-color: white;
+  border-top: 1px solid #ddd;
+}
+
+.messageInput input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.messageInput button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}

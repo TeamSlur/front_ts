@@ -1,0 +1,119 @@
+.chatRoom {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+
+  .userIcons {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    &.userIcons-1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    &.userIcons-2 {
+      position: relative;
+      svg {
+        width: 31px;
+        height: 31px;
+      }
+      svg:nth-child(1) {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+      svg:nth-child(2) {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+
+    &.userIcons-3 {
+      position: relative;
+      svg {
+        width: 27px;
+        height: 27px;
+      }
+      svg:nth-child(1) {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      svg:nth-child(2) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      svg:nth-child(3) {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    &.userIcons-4 {
+      position: relative;
+      svg {
+        width: 27px;
+        height: 27px;
+      }
+      svg:nth-child(1) {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      svg:nth-child(2) {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      svg:nth-child(3) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      svg:nth-child(4) {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+
+  .chatRoomInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .lastMessage {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+    }
+  }
+}

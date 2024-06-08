@@ -5,10 +5,13 @@ import Document from "../content/Document";
 import TestPage from "./TestPage";
 import {useParams} from "react-router-dom";
 import './Main.scss'
-
+import Chat from "../content/Chat";
+import ChatRoom from '../content/ChatRoom';
 const Main=()=>{
     const {pageContent} = useParams<{ pageContent: string }>();
     const [showChat, setShowChat] = useState(false);
+    const [activeChat, setActiveChat] = useState<string | null>(null);
+
     const renderPage: { [key: string]: JSX.Element } = {
         'document': <Document />,
         'test': <TestPage />,
@@ -23,6 +26,12 @@ const Main=()=>{
         }
         return renderPage['default'];
     };
+    const handleChatClick = (title: string) => {
+        setActiveChat(title);
+    };
+    const handleBackToChat = () => {
+        setActiveChat(null);
+    };
 
     return (
         <div className="mainContainer">
@@ -32,7 +41,15 @@ const Main=()=>{
                 <div className="pageContent">
                     {getPageContent(pageContent)}
                 </div>
-                {showChat && <div className="chatContainer">Chat Content</div>}
+                {showChat && (
+                    <div className="chatContainer">
+                        {activeChat ? (
+                            <ChatRoom title={activeChat} onBack={handleBackToChat} />
+                        ) : (
+                            <Chat onChatClick={handleChatClick} />
+                        )}
+                    </div>
+                )}
             </div>
         </div>
 
