@@ -1,5 +1,5 @@
-@import "./mixin.scss";
-@import "../index.scss";
+@import "../mixin";
+@import "../../index";
 
 .commentButton {
   @include buttonSize(3.47%, 1em, 16px);

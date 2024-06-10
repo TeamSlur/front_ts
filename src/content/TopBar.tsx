@@ -1,8 +1,8 @@
 import React from "react";
-import ChatIcon from "../component/ChatIcon";
-import UserIcon from "../component/UserIcon";
-import SettingIcon from "../component/SettingIcon";
-import AlertIcon from "../component/AlertIcon";
+import ChatIcon from "../component/icons/ChatIcon";
+import UserIcon from "../component/icons/UserIcon";
+import SettingIcon from "../component/icons/SettingIcon";
+import AlertIcon from "../component/icons/AlertIcon";
 import './TopBar.scss'
 
 interface Props {

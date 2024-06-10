@@ -1,5 +1,5 @@
 import TextField from "../component/TextField";
-import Button from "../component/Btn";
+import Button from "../component/button/Btn";
 import './LogIn.scss'
 import { useNavigate } from 'react-router-dom';
 import React from "react";

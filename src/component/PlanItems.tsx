@@ -1,8 +1,8 @@
 import React from "react";
-import CodeIcon from "./CodeIcon";
-import TimeLineIcon from "./TimeLineIcon";
-import IssueIcon from "./IssueIcon";
-import BoardIcon from "./BoardIcon";
+import CodeIcon from "./icons/CodeIcon";
+import TimeLineIcon from "./icons/TimeLineIcon";
+import IssueIcon from "./icons/IssueIcon";
+import BoardIcon from "./icons/BoardIcon";
 import'./PlanItems.scss'
 
 interface Props {

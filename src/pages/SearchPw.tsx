@@ -1,6 +1,6 @@
 import React from "react"
 import {useNavigate} from "react-router-dom";
-import Button from "../component/Btn";
+import Button from "../component/button/Btn";
 import TextField from "../component/TextField";
 import ErrorMessage from "../component/ErrorMessage";
 import './SearchPw.scss'

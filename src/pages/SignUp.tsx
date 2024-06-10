@@ -2,7 +2,7 @@ import React from "react"
 import './SignUp.scss'
 import TextField from "../component/TextField";
 import ErrorMessage from "../component/ErrorMessage";
-import Button from "../component/Btn";
+import Button from "../component/button/Btn";
 import {useNavigate} from "react-router-dom";
 
 const SignUp=()=>{

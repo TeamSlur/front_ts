@@ -1,6 +1,6 @@
 import React from 'react';
 import './Chat.scss';
-import ChatComponent from "../component/ChatComponent";
+import ChatComponent from "../component/chat/ChatComponent";
 interface ChatProps {
     onChatClick: (title: string) => void;
 }

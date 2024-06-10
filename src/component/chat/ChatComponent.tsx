@@ -1,5 +1,5 @@
 import React from "react";
-import UserIcon from "./UserIcon";
+import UserIcon from "../icons/UserIcon";
 import './ChatComponent.scss'
 
 interface Props {

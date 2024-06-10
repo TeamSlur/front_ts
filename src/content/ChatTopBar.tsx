@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchIcon from "../component/SearchIcon";
+import SearchIcon from "../component/icons/SearchIcon";
 import './ChatRoom.scss'
 
 

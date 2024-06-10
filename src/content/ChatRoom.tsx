@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ChatTopBar from './ChatTopBar';
-import MessageInput from '../component/MessageInput';
+import MessageInput from '../component/chat/MessageInput';
 import './ChatRoom.scss'
 
 interface ChatRoomProps {

@@ -1,4 +1,4 @@
-import Button from '../component/Btn';
+import Button from '../component/button/Btn';
 import TextField from '../component/TextField';
 import IssueType from "../component/IssueType";
 import Priority from "../component/Priority";
