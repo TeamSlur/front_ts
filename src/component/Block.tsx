@@ -23,8 +23,8 @@ const Block: React.FC<BlockProps> = ({
                                          isOnlyBlock,
                                          isDragging,
                                      }) => {
-    const textareaRef = useRef<HTMLTextAreaElement>(null);
-    const dragHandleRef = useRef<HTMLSpanElement>(null);
+    const textareaRef = useRef<HTMLTextAreaElement>(null); // 텍스트 영역 참조
+    const dragHandleRef = useRef<HTMLSpanElement>(null); // 드래그 핸들 참조
 
     useEffect(() => {
         if (isFocused && textareaRef.current) {
@@ -32,6 +32,8 @@ const Block: React.FC<BlockProps> = ({
         }
     }, [isFocused]);
 
+    //드래그 가능한 요소 설정
+    // localIsDragging은 로컬 드래그 상태를 추적
     const [{ isDragging: localIsDragging }, drag, preview] = useDrag({
         type: 'BLOCK',
         item: { id: block.id, block },
@@ -39,7 +41,7 @@ const Block: React.FC<BlockProps> = ({
             isDragging: monitor.isDragging(),
         }),
     });
-
+    //드롭 가능한 영역 설정
     const [, drop] = useDrop({
         accept: 'BLOCK',
         hover: (item: { id: string }) => {
@@ -55,6 +57,7 @@ const Block: React.FC<BlockProps> = ({
         }
     }, [drag]);
 
+    //키보드 특정 키 눌렸을 때 동작 처리
     const handleKeyDown = (e: KeyboardEvent) => {
         const cursorPosition = textareaRef.current?.selectionStart || 0;
         const textareaValue = textareaRef.current?.value || '';
@@ -65,12 +68,10 @@ const Block: React.FC<BlockProps> = ({
         } else if (e.key === 'ArrowUp') {
             if (cursorPosition === 0) {
                 e.preventDefault();
-                // Add your custom logic here if needed
             }
         } else if (e.key === 'ArrowDown') {
             if (cursorPosition === textareaValue.length) {
                 e.preventDefault();
-                // Add your custom logic here if needed
             }
         }
     };
