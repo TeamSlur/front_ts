@@ -29,7 +29,7 @@ const Main=()=>{
     const handleChatClick = (title: string) => {
         setActiveChat(title);
     };
-    const handleBackToChat = () => {
+    const handleBackToChat = () => { //채팅방 -> 채팅방리스트로
         setActiveChat(null);
     };
 

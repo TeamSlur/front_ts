@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './Document.scss';
-import { Block as BlockType } from '../types';
+import { Block as BlockType } from '../blockTypes';
 import Block from '../component/Block';
 import { v4 as uuidv4 } from 'uuid';
 import { DndProvider } from 'react-dnd';

@@ -1,6 +1,6 @@
 import React, {useRef, KeyboardEvent, useEffect} from 'react';
 import { useDrag, useDrop } from 'react-dnd';
-import { Block as BlockType } from '../types';
+import { Block as BlockType } from '../blockTypes';
 
 interface BlockProps {
     block: BlockType;
