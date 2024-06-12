@@ -6,6 +6,7 @@ import SearchId from "../pages/SearchId";
 import SearchPw from "../pages/SearchPw";
 import SignUp from "../pages/SignUp";
 import Main from "../pages/Main";
+import Document from "../content/Document";
 
 const AppRouter = () => {
     return (
@@ -16,7 +17,8 @@ const AppRouter = () => {
                 <Route path="/searchid" element={<SearchId />} />
                 <Route path="/searchpw" element={<SearchPw />} />
                 <Route path="/signup" element={<SignUp />} />
-                <Route path="/main" element={<Main />} />
+                <Route path="/main/:pageContent" element={<Main />} />
+                <Route path="/document" element={<Document />} />
             </Routes>
         </Router>
     );

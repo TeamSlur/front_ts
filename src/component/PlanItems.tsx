@@ -1,12 +1,13 @@
 import React from "react";
-import CodeIcon from "./CodeIcon";
-import TimeLineIcon from "./TimeLineIcon";
-import IssueIcon from "./IssueIcon";
-import BoardIcon from "./BoardIcon";
+import CodeIcon from "./icons/CodeIcon";
+import TimeLineIcon from "./icons/TimeLineIcon";
+import IssueIcon from "./icons/IssueIcon";
+import BoardIcon from "./icons/BoardIcon";
 import'./PlanItems.scss'
 
 interface Props {
     type: 'timeline' | 'issue' | 'code' | 'board';
+    onClick?: () => void;
 }
 
 const planItemsName = {
@@ -24,13 +25,13 @@ const planItems = {
     board: BoardIcon
 };
 
-const PlanItems = ({type}: Props) => {
+const PlanItems = ({type, onClick}: Props) => {
     const IconComponent = planItems[type];
-    return(
-        <button className={'planItems'}>
-            <IconComponent className={'planIcons'}/>
+    return (
+        <button className="planItems" onClick={onClick}>
+            <IconComponent className="planIcons" />
             {planItemsName[type]}
         </button>
-    )
+    );
 }
 export default PlanItems

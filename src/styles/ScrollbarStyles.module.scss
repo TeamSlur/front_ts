@@ -1,0 +1,20 @@
+/* 스크롤바 스타일링 */
+*::-webkit-scrollbar {
+  width: 8px; /* 스크롤바 너비 */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #aaa; /* 스크롤바 색상 */
+  border-radius: 4px; /* 스크롤바 모서리 곡률 */
+}
+
+*::-webkit-scrollbar-track {
+  background: #f1f1f1; /* 스크롤바 트랙 색상 */
+  border-radius: 4px; /* 스크롤바 트랙 모서리 곡률 */
+}
+
+/* Firefox 스크롤바 스타일링 */
+* {
+  scrollbar-width: thin; /* 스크롤바 너비 */
+  scrollbar-color: #aaa #f1f1f1; /* 스크롤바 색상 */
+}

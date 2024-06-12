@@ -1,5 +1,5 @@
 import React from "react"
-import Button from "../component/Btn";
+import Button from "../component/button/Btn";
 import './SearchId.scss'
 import TextField from "../component/TextField";
 import {useNavigate} from "react-router-dom";
