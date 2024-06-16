@@ -1,17 +1,56 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Document.scss';
 import { Block as BlockType } from '../blockTypes';
-import Block from '../component/Block';
+import Block from './Block';
 import { v4 as uuidv4 } from 'uuid';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { createWebSocket, sendMessage } from '../api/webSocket';
 
 const Document: React.FC = () => {
     const [blocks, setBlocks] = useState<BlockType[]>([{ id: uuidv4(), content: '', parentId: null, children: [] }]);
     const [focusedBlockId, setFocusedBlockId] = useState<string | null>(blocks[0].id);
     const [title, setTitle] = useState<string>('');
+    const [socket, setSocket] = useState<WebSocket | null>(null);
 
-    const addBlock = (afterId: string, cursorIndex: number) => {
+    useEffect(() => {
+        const ws = createWebSocket((data) => {
+            const { type, payload } = data;
+
+            switch (type) {
+                case 'BLOCK_UPDATED':
+                    setBlocks((prevBlocks) => prevBlocks.map(block =>
+                        block.id === payload.id ? { ...block, content: payload.content } : block
+                    ));
+                    break;
+                case 'BLOCK_ADDED':
+                    setBlocks((prevBlocks) => [...prevBlocks, payload]);
+                    break;
+                case 'BLOCK_MOVED':
+                    const { draggedId, targetId } = payload;
+                    const updatedBlocks = [...prevBlocks];
+                    const draggedIndex = updatedBlocks.findIndex(block => block.id === draggedId);
+                    const targetIndex = updatedBlocks.findIndex(block => block.id === targetId);
+                    const [draggedBlock] = updatedBlocks.splice(draggedIndex, 1);
+                    updatedBlocks.splice(targetIndex, 0, draggedBlock);
+                    setBlocks(updatedBlocks);
+                    break;
+                case 'BLOCK_REMOVED':
+                    setBlocks((prevBlocks) => prevBlocks.filter(block => block.id !== payload.id));
+                    break;
+                default:
+                    break;
+            }
+        });
+
+        setSocket(ws);
+
+        return () => {
+            ws.close();
+        };
+    }, []);
+
+    const addBlock = useCallback((afterId: string, cursorIndex: number) => {
         const newBlock: BlockType = { id: uuidv4(), content: '', parentId: null, children: [] };
         const index = blocks.findIndex((block) => block.id === afterId);
         const newBlocks = [...blocks];
@@ -25,9 +64,11 @@ const Document: React.FC = () => {
 
         setBlocks(newBlocks);
         setFocusedBlockId(newBlock.id);
-    };
 
-    const removeBlock = (id: string) => {
+        sendMessage(socket!, { type: 'BLOCK_ADDED', payload: newBlock });
+    }, [blocks, socket]);
+
+    const removeBlock = useCallback((id: string) => {
         if (blocks.length === 1) return;
 
         const index = blocks.findIndex((block) => block.id === id);
@@ -45,9 +86,10 @@ const Document: React.FC = () => {
         }
 
         setBlocks(newBlocks);
-    };
+        sendMessage(socket!, { type: 'BLOCK_REMOVED', payload: { id } });
+    }, [blocks, socket]);
 
-    const moveBlock = (draggedId: string, targetId: string) => {
+    const moveBlock = useCallback((draggedId: string, targetId: string) => {
         const draggedBlockIndex = blocks.findIndex((block) => block.id === draggedId);
         const targetBlockIndex = blocks.findIndex((block) => block.id === targetId);
 
@@ -58,11 +100,13 @@ const Document: React.FC = () => {
         newBlocks.splice(targetBlockIndex, 0, draggedBlock);
 
         setBlocks(newBlocks);
-    };
+        sendMessage(socket!, { type: 'BLOCK_MOVED', payload: { draggedId, targetId } });
+    }, [blocks, socket]);
 
-    const updateBlockContent = (id: string, content: string) => {
-        setBlocks(blocks.map((block) => (block.id === id ? { ...block, content } : block)));
-    };
+    const updateBlockContent = useCallback((id: string, content: string) => {
+        setBlocks(blocks.map((block) => (block.id === id ? { ...block, content } : block))));
+        sendMessage(socket!, { type: 'BLOCK_UPDATED', payload: { id, content } });
+    }, [blocks, socket]);
 
     useEffect(() => {
         if (!focusedBlockId && blocks.length > 0) {

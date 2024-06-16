@@ -7,7 +7,7 @@ import {useParams} from "react-router-dom";
 import './Main.scss'
 import Chat from "../content/Chat";
 import ChatRoom from '../content/ChatRoom';
-const Main=()=>{
+const Main = () => {
     const {pageContent} = useParams<{ pageContent: string }>();
     const [showChat, setShowChat] = useState(false);
     const [activeChat, setActiveChat] = useState<string | null>(null);

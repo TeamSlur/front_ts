@@ -1,35 +1,63 @@
+import React, { useState } from "react";
 import TextField from "../component/TextField";
 import Button from "../component/button/Btn";
-import './LogIn.scss'
+import './LogIn.scss';
 import { useNavigate } from 'react-router-dom';
-import React from "react";
+import { login } from "../api/login";
+import { ApiData } from "../types/apiTypes";
 
-
-const LogIn = () => {
+const LogIn: React.FC = () => {
+    const [userId, setUserId] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
     const navigate = useNavigate();
+
     const handleIdClick = () => {
         navigate('/searchid');
     };
+
     const handlePwClick = () => {
         navigate('/searchpw');
     };
+
     const handleSignUpClick = () => {
         navigate('/signup');
     };
-    const handleLogInClick = () => {
-        navigate('/main/:pageContent');
+
+    const handleLogInClick = async () => {
+        const loginData: ApiData = {
+            userId,
+            password,
+        };
+
+        const response = await login('login', loginData);
+        if (response) {
+            navigate('/main/:pageContent');
+        } else {
+            alert('로그인에 실패했습니다. 다시 시도해주세요.');
+        }
     };
+
     const separator = " | ";
 
     return (
         <div className={'loginContainer'}>
-            <img src={`${process.env.PUBLIC_URL}/assets/imgs/logo.png`} alt="Logo" className={'LoginLogo'}/>
-            <TextField type={'ID'}/>
-            <TextField type={'password'}/>
+            <img src={`${process.env.PUBLIC_URL}/assets/imgs/logo.png`} alt="Logo" className={'LoginLogo'} />
+            <TextField
+                type={'ID'}
+                value={userId}
+                onChange={(e) => setUserId(e.target.value)}
+            />
+            <TextField
+                type={'password'}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
             <Button
                 buttonSize="signUpLogInButton"
                 buttonColor="blue"
-                onClick={handleLogInClick}>로그인
+                onClick={handleLogInClick}
+            >
+                로그인
             </Button>
             <div className={'accountAction'}>
                 <span id={'id'} onClick={handleIdClick}>아이디찾기</span>
@@ -39,6 +67,7 @@ const LogIn = () => {
                 <span id={'signup'} onClick={handleSignUpClick}>회원가입</span>
             </div>
         </div>
-    )
-}
+    );
+};
+
 export default LogIn;

@@ -1,7 +1,10 @@
-import React from "react";
-import './Input.scss'
+import React, { ChangeEvent } from "react";
+import './Input.scss';
+
 interface Props {
-    mode: keyof StyleObj
+    mode: keyof StyleObj;
+    value?: string;
+    onChange?: (value: string) => void;
 }
 
 interface StyleObj {
@@ -11,15 +14,29 @@ interface StyleObj {
     password: string;
 }
 
-const Input = ({ mode }: Props) => {
+const Input = ({ mode, value, onChange }: Props) => {
     const styleObj: StyleObj = {
-        'ID' : 'ID',
-        'text' : 'text',
-        'email' : 'email',
-        'password' : 'password'
-    }
-    return(
-        <input id={`id${mode}`} type={styleObj[mode]} placeholder={`${mode}`}/>
-    )
-}
+        'ID': 'text',
+        'text': 'text',
+        'email': 'email',
+        'password': 'password'
+    };
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        if (onChange) {
+            onChange(e.target.value);
+        }
+    };
+
+    return (
+        <input
+            id={`id${mode}`}
+            type={styleObj[mode]}
+            placeholder={`${mode}`}
+            value={value}
+            onChange={handleChange}
+        />
+    );
+};
+
 export default Input;
