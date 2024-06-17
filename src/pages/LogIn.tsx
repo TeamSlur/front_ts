@@ -3,8 +3,8 @@ import TextField from "../component/TextField";
 import Button from "../component/button/Btn";
 import './LogIn.scss';
 import { useNavigate } from 'react-router-dom';
-import { login } from "../api/login";
 import { ApiData } from "../types/apiTypes";
+import { login } from "../apis/login";
 
 const LogIn: React.FC = () => {
     const [userId, setUserId] = useState<string>('');
@@ -45,12 +45,12 @@ const LogIn: React.FC = () => {
             <TextField
                 type={'ID'}
                 value={userId}
-                onChange={(e) => setUserId(e.target.value)}
+                onChange={setUserId}
             />
             <TextField
                 type={'password'}
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={setPassword}
             />
             <Button
                 buttonSize="signUpLogInButton"
