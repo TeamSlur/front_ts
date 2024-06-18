@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './Document.scss';
 import { Block as BlockType } from '../blockTypes';
-import Block from './Block';
+import Block from '../component/Block';
 import { v4 as uuidv4 } from 'uuid';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { createWebSocket, sendMessage } from '../api/webSocket';
+import {createWebSocket, sendMessage} from "../apis/websocket";
 
 const Document: React.FC = () => {
     const [blocks, setBlocks] = useState<BlockType[]>([{ id: uuidv4(), content: '', parentId: null, children: [] }]);
@@ -16,7 +16,6 @@ const Document: React.FC = () => {
     useEffect(() => {
         const ws = createWebSocket((data) => {
             const { type, payload } = data;
-
             switch (type) {
                 case 'BLOCK_UPDATED':
                     setBlocks((prevBlocks) => prevBlocks.map(block =>
@@ -28,7 +27,7 @@ const Document: React.FC = () => {
                     break;
                 case 'BLOCK_MOVED':
                     const { draggedId, targetId } = payload;
-                    const updatedBlocks = [...prevBlocks];
+                    const updatedBlocks = [...blocks];
                     const draggedIndex = updatedBlocks.findIndex(block => block.id === draggedId);
                     const targetIndex = updatedBlocks.findIndex(block => block.id === targetId);
                     const [draggedBlock] = updatedBlocks.splice(draggedIndex, 1);
@@ -48,7 +47,7 @@ const Document: React.FC = () => {
         return () => {
             ws.close();
         };
-    }, []);
+    }, [blocks]);
 
     const addBlock = useCallback((afterId: string, cursorIndex: number) => {
         const newBlock: BlockType = { id: uuidv4(), content: '', parentId: null, children: [] };
@@ -104,7 +103,7 @@ const Document: React.FC = () => {
     }, [blocks, socket]);
 
     const updateBlockContent = useCallback((id: string, content: string) => {
-        setBlocks(blocks.map((block) => (block.id === id ? { ...block, content } : block))));
+        setBlocks(blocks.map((block) => (block.id === id ? { ...block, content } : block)));
         sendMessage(socket!, { type: 'BLOCK_UPDATED', payload: { id, content } });
     }, [blocks, socket]);
 
